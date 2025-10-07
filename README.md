@@ -14,5 +14,3 @@ A clone of Bible Notify that adds a few features allowing to use cutom quotes in
 ## License
 
 EchoNotify (just as Bible Notify) is licensed under the GPL-3.0 License.
-
-The French text used in this app is the [AELF](https://www.aelf.org/) translation. Please [contact them](https://www.aelf.org/contact) for any question or inquiry.
