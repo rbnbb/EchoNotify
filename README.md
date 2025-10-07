@@ -3,9 +3,6 @@
   <h1>EchoNotify</h1>
   <p>
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-GPL_v3-green.svg" /></a>
-  </p>
-  <p>Daily Scripture Verse Notifications for Android devices.</p>
-  <p><i>Thy word is a lamp unto my feet, and a light unto my path." -Psalms 119:105</i></p>
 </div>
 
 
