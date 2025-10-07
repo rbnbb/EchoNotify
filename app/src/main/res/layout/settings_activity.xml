@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"
         android:background="@color/mode_white"
-        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintBottom_toTopOf="@+id/current_profile_label"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -47,45 +47,156 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
+    <!-- Expandable Days Section -->
+
     <TimePicker
         android:id="@+id/time_picker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:timePickerMode="spinner"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/time_section_label" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/days_toggle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginBottom="16dp"
-        android:text="@string/send_daily_notification_at"
+        android:background="?android:attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"
+        android:padding="8dp"
+        android:text="▼ Days (Optional)"
         android:textColor="@color/mode_black"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/time_picker"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/time_picker" />
+
+    <LinearLayout
+        android:id="@+id/days_container"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/days_toggle">
+
+        <CheckBox
+            android:id="@+id/cb_sunday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sun"
+            android:textSize="12sp" />
+
+        <CheckBox
+            android:id="@+id/cb_monday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mon"
+            android:textSize="12sp" />
+
+        <CheckBox
+            android:id="@+id/cb_tuesday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tue"
+            android:textSize="12sp" />
+
+        <CheckBox
+            android:id="@+id/cb_wednesday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Wed"
+            android:textSize="12sp" />
+
+        <CheckBox
+            android:id="@+id/cb_thursday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Thu"
+            android:textSize="12sp" />
+
+        <CheckBox
+            android:id="@+id/cb_friday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fri"
+            android:textSize="12sp" />
+
+        <CheckBox
+            android:id="@+id/cb_saturday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sat"
+            android:textSize="12sp" />
+    </LinearLayout>
+    <!-- Current Profile Section -->
+    <TextView
+        android:id="@+id/current_profile_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="Current Profile:"
+        android:textColor="@color/mode_black"
+        android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/settings_top_bar" />
 
+    <Spinner
+        android:id="@+id/profile_spinner"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="24dp"
+        app:layout_constraintBottom_toTopOf="@+id/time_section_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/current_profile_label" />
+
+    <!-- Time Section -->
+    <TextView
+        android:id="@+id/time_section_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="Notification Time for Selected Profile:"
+        android:textColor="@color/mode_black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profile_spinner" />
+
+
+    <!-- Quotes Section -->
 
     <Button
         android:id="@+id/set_time_button"
         style="@style/Widget.Material3.Button.OutlinedButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginTop="24dp"
         android:insetRight="0dp"
         android:paddingStart="30dp"
         android:paddingTop="16dp"
@@ -98,34 +209,143 @@
         app:backgroundTint="@color/main_app_green"
         app:cornerRadius="30dp"
         app:elevation="2dp"
-        app:layout_constraintBottom_toTopOf="@+id/cancel_button"
         app:layout_constraintEnd_toEndOf="@+id/time_picker"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/time_picker"
-        app:layout_constraintTop_toBottomOf="@+id/time_picker"
+        app:layout_constraintTop_toBottomOf="@+id/days_container"
         app:rippleColor="#33AAAAAA"
         app:strokeColor="@color/main_app_green"
         app:strokeWidth="2dp" />
 
+    <TextView
+        android:id="@+id/quotes_section_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        android:text="Quotes for Selected Profile:"
+        android:textColor="@color/mode_black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/set_time_button" />
+
+    <TextView
+        android:id="@+id/current_file_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
+        android:text="No custom file imported"
+        android:textColor="#666666"
+        android:textSize="14sp"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/quotes_section_label" />
 
     <Button
-        android:id="@+id/cancel_button"
+        android:id="@+id/import_quotes_button"
         style="@style/Widget.Material3.Button.OutlinedButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:paddingStart="16dp"
+        android:paddingTop="16dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="16dp"
+        android:text="Import Quotes"
+        android:textAllCaps="false"
+        android:textColor="@color/button_black"
+        android:textSize="14sp"
+        app:backgroundTint="@android:color/transparent"
+        app:cornerRadius="30dp"
+        app:layout_constraintEnd_toStartOf="@+id/test_notification_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/current_file_name"
+        app:rippleColor="#33AAAAAA"
+        app:strokeColor="@color/main_app_green"
+        app:strokeWidth="2dp" />
+
+    <Button
+        android:id="@+id/test_notification_button"
+        style="@style/Widget.Material3.Button.OutlinedButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:paddingStart="16dp"
+        android:paddingTop="16dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="16dp"
+        android:text="Test Now"
+        android:textAllCaps="false"
+        android:textColor="#FFFDFD"
+        android:textSize="14sp"
+        app:backgroundTint="@color/main_app_green"
+        app:cornerRadius="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/import_quotes_button"
+        app:layout_constraintTop_toBottomOf="@+id/current_file_name"
+        app:rippleColor="#33AAAAAA"
+        app:strokeColor="@color/main_app_green"
+        app:strokeWidth="2dp" />
+
+    <Button
+        android:id="@+id/manage_profiles_button"
+        style="@style/Widget.Material3.Button.OutlinedButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
         android:paddingStart="30dp"
         android:paddingTop="16dp"
         android:paddingEnd="20dp"
         android:paddingBottom="16dp"
-        android:text="@string/cancel_btn"
+        android:text="Manage Profiles"
         android:textAllCaps="false"
         android:textColor="@color/button_black"
         android:textSize="16sp"
         app:backgroundTint="@android:color/transparent"
         app:cornerRadius="30dp"
-        app:layout_constraintEnd_toEndOf="@+id/set_time_button"
-        app:layout_constraintStart_toStartOf="@+id/set_time_button"
-        app:layout_constraintTop_toBottomOf="@+id/set_time_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/test_notification_button"
+        app:rippleColor="#33AAAAAA"
+        app:strokeColor="@color/button_black"
+        app:strokeWidth="2dp" />
+
+    <!-- Return button at bottom -->
+    <Button
+        android:id="@+id/return_button"
+        style="@style/Widget.Material3.Button.OutlinedButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="32dp"
+        android:paddingStart="30dp"
+        android:paddingTop="16dp"
+        android:paddingEnd="20dp"
+        android:paddingBottom="16dp"
+        android:text="Return"
+        android:textAllCaps="false"
+        android:textColor="@color/button_black"
+        android:textSize="16sp"
+        app:backgroundTint="@android:color/transparent"
+        app:cornerRadius="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/manage_profiles_button"
         app:rippleColor="#33AAAAAA"
         app:strokeColor="@color/button_black"
         app:strokeWidth="2dp" />

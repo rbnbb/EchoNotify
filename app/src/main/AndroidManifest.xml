@@ -4,6 +4,7 @@
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:icon="@mipmap/ic_launcher"
@@ -20,6 +21,7 @@
         </activity>
        <activity android:name=".BibleReader" android:screenOrientation="user" />
         <activity android:name=".SettingsActivity" android:screenOrientation="portrait" />
+        <activity android:name=".ProfileManagementActivity" android:screenOrientation="portrait" />
         <activity android:name=".LanguageSettings" />
         <activity android:name=".HelpActivity" android:theme="@style/Dialog" />
 

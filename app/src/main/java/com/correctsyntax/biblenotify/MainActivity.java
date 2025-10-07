@@ -107,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
 
     // If enabled set image to done
     if (sharedPreferences.contains("Started")) {
-      startBtn.setText(R.string.biblenotify_is_running);
+      startBtn.setText(R.string.app_is_running);
       startBtn.setBackgroundColor(Color.BLACK);
       startBtn.setTextColor(Color.WHITE);
       MaterialButton MButton = (MaterialButton) startBtn;
@@ -134,7 +134,7 @@ public class MainActivity extends AppCompatActivity {
               && sharedPreferences.getString("Started", "no").equals("yes")) {
             Toast.makeText(
                     getApplicationContext(),
-                    MainActivity.this.getString(R.string.biblenotify_is_running),
+                    MainActivity.this.getString(R.string.app_is_running),
                     Toast.LENGTH_SHORT)
                 .show();
           } else {
@@ -164,7 +164,7 @@ public class MainActivity extends AppCompatActivity {
                       Toast.makeText(getApplicationContext(), "Saved", Toast.LENGTH_SHORT).show();
 
                       // Animation
-                      startBtn.setText(R.string.biblenotify_is_running);
+                      startBtn.setText(R.string.app_is_running);
                       startBtn.setBackgroundColor(Color.BLACK);
                       startBtn.setTextColor(Color.WHITE);
                       MaterialButton MButton = (MaterialButton) startBtn;

@@ -31,7 +31,7 @@ public class HelpActivity extends AppCompatActivity {
     licenseLink.setOnClickListener(
         v -> {
           AlertDialog.Builder builder = new AlertDialog.Builder(HelpActivity.this);
-          builder.setTitle(R.string.biblenotify_license);
+          builder.setTitle(R.string.app_license);
           builder.setMessage(R.string.license);
           builder.setPositiveButton(
               R.string.close_btn,
